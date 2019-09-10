@@ -120,6 +120,15 @@ void loop() {
     Serial.print("Received from BT:"); Serial.println(incoming);
     sendMessage(incoming); // send BT message over ble
   }
+
+  // on Serial recieve
+  if (Serial.available())
+  {
+    String incoming = Serial.readString();
+    Serial.print("Received from Serial:"); Serial.println(incoming);
+    sendMessage(incoming); // send BT message over ble
+  }
+  
 }
 
 void sendMessage(String outgoing) {
